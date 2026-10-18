@@ -1,5 +1,11 @@
-<img src="assets/icon.svg" width="64" height="64" alt="">
+# vinext app
 
-# lms
+This project was created with create-vinext-app.
 
-Created in [T3 Code](https://t3.codes).
+## Scripts
+
+- `pnpm run dev` starts the vinext dev server.
+- `pnpm run build` builds the Cloudflare Worker output.
+- `pnpm run start` previews the built Worker locally.
+- `pnpm run deploy` deploys the Cloudflare Worker.
+
