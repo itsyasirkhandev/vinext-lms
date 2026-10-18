@@ -8,4 +8,3 @@ This project was created with create-vinext-app.
 - `pnpm run build` builds the Cloudflare Worker output.
 - `pnpm run start` previews the built Worker locally.
 - `pnpm run deploy` deploys the Cloudflare Worker.
-

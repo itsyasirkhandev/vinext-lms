@@ -2,7 +2,15 @@
   "name": "lms",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@12.14.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "start": "vp preview",
+    "deploy": "vinext-cloudflare deploy",
+    "deploy:response-store": "cf deploy --prebuilt --mode production --worker lms-response-store",
+    "prepare": "vp config"
+  },
   "dependencies": {
     "@cloudflare/workers-response-store": "^1.1.1",
     "@vinext/cloudflare": "^1.1.1",
@@ -22,14 +30,8 @@
     "cf": "1.0.0-beta.18",
     "tailwindcss": "latest",
     "typescript": "latest",
-    "vite": "8.3.0"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "start": "vite preview",
-    "deploy": "vinext-cloudflare deploy",
-    "deploy:response-store": "cf deploy --prebuilt --mode production --worker lms-response-store"
-  }
+  "packageManager": "pnpm@12.14.0"
 }
