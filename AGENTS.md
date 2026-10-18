@@ -25,3 +25,28 @@ release. Add a tool name to select part of the graph. For example, run
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
 <!--VITE PLUS END-->
+
+<!-- BEGIN:vinext-agent-rules -->
+
+# vinext — Next.js API on Vite (already migrated, no Next.js toolchain)
+
+This is a vinext project (`vinext@1.2.1`, targets Next 16.x). Do not migrate it.
+Vite 8 runs dev/build — never run `next dev/build/start/lint`. Use `vp dev`,
+`vp build`, `vp preview` per `package.json:6-13`.
+
+- `app/`, `pages/`, `public/`, `next.config.*` work as-is. vinext reads
+  `next.config.*` for redirects/rewrites/headers/basePath/i18n/images only —
+  webpack/Turbopack config is ignored, use Vite plugins.
+- `next/*` imports (`link`, `image`, `navigation`, `headers`, `cache`, etc.)
+  resolve to vinext shims. Do not rewrite them to `vinext/*`.
+- Do not register `@vitejs/plugin-rsc` yourself — vinext auto-registers it when
+  `app/` is detected. React comes from this project's `react` deps, not a
+  bundled copy.
+- `runtime` / `preferredRegion` do not choose placement. `next/image` (no
+  build-time optimization) and `next/font/*` (CDN/runtime injection) are partial.
+
+Docs are online-only here: `next` is not installed so there is no
+`node_modules/next/dist/docs`, and vinext ships only `dist/`. Use
+https://nextjs.org/docs/app for features, then deltas at
+https://vinext.dev/docs/reference/differences and https://vinext.dev/compatibility.
+<!-- END:vinext-agent-rules -->
