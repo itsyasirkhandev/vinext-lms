@@ -1,0 +1,40 @@
+name: Feature request
+description: Suggest a change to the starter, the toolchain or the documentation
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to build
+      description: Describe the LMS feature or setup step you need, and what stops you from doing it today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would change
+      description: The approach you have in mind, and which files it would touch.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area does this affect?
+      options:
+        - Toolchain and build
+        - Cloudflare Workers configuration
+        - Cache and response store
+        - Starter code and routing
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+    validations:
+      required: false

@@ -1,0 +1,66 @@
+name: Bug report
+description: Something in the starter does not work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is a starter, so the most useful bug reports are about the toolchain itself:
+        the dev server, the build, the deployment steps, or the documentation being wrong.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you observed, including the error output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: The commands you ran and what you clicked.
+      render: shell
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Output of `pnpm exec vp --version`, plus your Node and pnpm versions.
+      placeholder: "vp v1.1.0, node v24.22.0, pnpm 12.14.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area does this affect?
+      options:
+        - Dev server
+        - Production build
+        - Deployment to Cloudflare Workers
+        - Response store cache
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I ran `pnpm exec vp check` and it passes
+          required: false
+        - label: I searched the existing issues and found no mention of this
+          required: false
