@@ -57,7 +57,7 @@ The dev server listens on `http://localhost:5173`. The port follows the `PORT` e
 | Command                          | What it does                                                                       |
 | -------------------------------- | ---------------------------------------------------------------------------------- |
 | `pnpm run dev`                   | Starts the vinext dev server on Vite with HMR.                                     |
-| `pnpm run build`                 | Produces the Cloudflare Worker output in `dist/`.                                  |
+| `pnpm run build`                 | Produces the Cloudflare Worker output under `.cloudflare/output/`.                 |
 | `pnpm run start`                 | Previews the built Worker locally.                                                 |
 | `pnpm run deploy`                | Deploys the `lms` Worker with the Cloudflare CLI.                                  |
 | `pnpm run deploy:response-store` | Deploys the `lms-response-store` auxiliary Worker used for cached response bodies. |
@@ -96,7 +96,7 @@ Asset handling is set to `runWorkerFirst`, which sends every request to the Work
 
 ## Configuration
 
-There are no environment variables to set for local development. Worker bindings are declared in `cloudflare.config.ts` rather than in `.env` files, and secrets belong in the Cloudflare dashboard or `wrangler`-style secret commands.
+There are no environment variables to set for local development. Worker bindings are declared in `cloudflare.config.ts` rather than in `.env` files, and secrets belong in the Cloudflare dashboard or in `cf workers secrets update <name>`.
 
 Two Worker names are defined there: `lms` for the application and `lms-response-store` for the cache backing store. Rename them if you deploy more than one environment of this project.
 
