@@ -15,6 +15,8 @@ Use this repository when you need a learning platform on modern edge infrastruct
 
 This is a starting point, not a finished LMS. The auth, database and course model are yours to build. The roadmap section below lists the LMS features this scaffold is designed to grow into.
 
+![vinext LMS: a learning management system starter on the Next.js App Router, running on Vite and deployed to Cloudflare Workers](assets/social-preview.png)
+
 ## What you get
 
 The repository is small on purpose. It contains the pieces that are annoying to wire up by hand, and nothing that pretends to be a course platform.
@@ -31,7 +33,7 @@ The repository is small on purpose. It contains the pieces that are annoying to 
 | Layer                  | Choice                                  | Version         |
 | ---------------------- | --------------------------------------- | --------------- |
 | App framework          | vinext (Next.js App Router API on Vite) | 1.2.1           |
-| Bundler and dev server | Vite+ / Vite                            | 1.1.0           |
+| Bundler and dev server | Vite+ (Vite 8)                          | 1.1.0           |
 | UI runtime             | React with React Server Components      | 19.3.1          |
 | Language               | TypeScript                              | 7.0.2           |
 | Styling                | Tailwind CSS                            | 4.3.3           |
@@ -83,6 +85,8 @@ Asset handling is set to `runWorkerFirst`, which sends every request to the Work
 │   ├── globals.css          Tailwind CSS import and base styles
 │   ├── layout.tsx           Root layout and metadata
 │   └── page.tsx             Home page
+├── assets/
+│   └── social-preview.png   1280x640 card used for the GitHub social preview
 ├── cloudflare.config.ts     Worker definition and response-store binding
 ├── next.config.ts           Next.js config read by vinext
 ├── postcss.config.mjs       Tailwind PostCSS plugin
@@ -95,6 +99,12 @@ Asset handling is set to `runWorkerFirst`, which sends every request to the Work
 There are no environment variables to set for local development. Worker bindings are declared in `cloudflare.config.ts` rather than in `.env` files, and secrets belong in the Cloudflare dashboard or `wrangler`-style secret commands.
 
 Two Worker names are defined there: `lms` for the application and `lms-response-store` for the cache backing store. Rename them if you deploy more than one environment of this project.
+
+## Repository assets
+
+`assets/social-preview.png` is the 1280x640 card GitHub shows when someone shares the repository link in Slack, Discord or X. GitHub offers no API for it, so it is uploaded once by hand: open Settings, then Social preview, then upload the file from this repository.
+
+Replace that file when you rename the project or change the stack, and keep the filename so the upload path stays valid.
 
 ## Building the LMS features
 
